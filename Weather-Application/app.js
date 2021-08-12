@@ -3,8 +3,11 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
+//Rutas
 const router = require('./routes/router');
 const tiempoRouter = require('./routes/tiempo');
+const paisRouter = require('./routes/paisRouter');
 
 const app = express();
 app.use(cors());
@@ -18,6 +21,7 @@ app.use(bodyParser.json());
 // routers
 app.use('/api/history', router);
 app.use('/api/tiempo', tiempoRouter);
+app.use('/api/pais', paisRouter);
 
 // server PORT
 const PORT = process.env.PORT || 3000;

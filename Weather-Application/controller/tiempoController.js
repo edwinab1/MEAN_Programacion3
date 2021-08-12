@@ -1,5 +1,4 @@
 const ciudad = require('../model/ciudad');
-const mongoose = require('mongoose');
 
 module.exports = {
 
@@ -11,17 +10,13 @@ module.exports = {
 
             return res.json(result);
 
-        }).sort({'fecha':'DESC'})
+        })
+        .sort({'fecha':'DESC'})
+        .populate('pais', '-_id nombre')
         
-        ;
     },
 
-    // nombre: { type: String, required: true },
-    // temperatura: { type: Number, required: true },
-    // humedad: { type: Number, required: true },
-    // presion: { type: Number, required: true },
-    // velocidad: { type: Number, required: true },
-    // fecha: { type: Date, required: true, default: Date.now },
+
    
 
     postCiudades:(req, res) => {
@@ -35,6 +30,7 @@ module.exports = {
             presion: body.presion,
             velocidad: body.velocidad,
             humedad: body.humedad,
+            pais: body.pais
         })
 
         city.save((err, result) => {
