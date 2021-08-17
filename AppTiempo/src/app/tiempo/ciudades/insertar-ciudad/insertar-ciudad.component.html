@@ -1,0 +1,71 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>Registro Ciudades</h1>
+
+    </div>
+    <div class="row">
+
+        <div class="col-6">
+
+
+            <form [formGroup]="formCiudad" (ngSubmit)="guardar()" novalidate>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Ingrese nombre de ciudad" id="nombre"
+                        name="nombre" formControlName="nombre">
+
+                    <div class="bg-danger" *ngIf="controls.nombre.errors?.required">
+                        Nombre es obligatorio
+                    </div>
+
+                    <!-- Mostrar mensaje para min (5) -->
+                    <div class="bg-warning" *ngIf="controls.nombre.errors?.minlength">
+                        Nombre muy corto
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="name">Temperatura</label>
+                    <input type="text" class="form-control" placeholder="Ingrese temperatura"
+                        formControlName="temperatura">
+
+                    <!-- Mostrar mensaje para min (8) -->
+                    <div class="bg-warning" *ngIf="controls.temperatura.errors?.minlength">
+                        Los numeros deben tener menos de 8 digitos
+                    </div>
+
+                      <!-- Mostrar mensaje para min (8) -->
+                      <div class="bg-danger" *ngIf="controls.temperatura.errors?.maxlength">
+                        Los numeros no deben tener mas de 8 digitos
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Humedad</label>
+                    <input type="text" class="form-control" placeholder="Ingrese humedad" formControlName="humedad">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Velocidad del Viento</label>
+                    <input type="text" class="form-control" placeholder="Ingrese velocidad del viento"
+                        formControlName="velocidad">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Presión</label>
+                    <input type="text" class="form-control" placeholder="Ingrese presión"
+                        formControlName="presion">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

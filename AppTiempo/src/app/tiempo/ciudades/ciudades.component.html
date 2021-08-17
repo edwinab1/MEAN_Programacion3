@@ -1,1 +1,28 @@
-<p>ciudades works!</p>
+<h3>Hola Ciudades</h3>
+
+<table class="table table-bordered table-hover">
+    <tr class="bg-warning">
+        <th>No</th>
+        <th>Nombre</th>
+        <th>Temperatura</th>
+        <th>Humedad</th>
+        <th>Presion</th>
+        <th>Velocidad</th>
+        <th>Acciones</th>
+        <!-- <th>Pais</th> -->
+    </tr>
+    <tr *ngFor="let ciudad of ciudades; let i=index; ">
+        <td>{{i+1}}</td>
+        <td>{{ciudad.nombre}}</td>
+        <td>{{ciudad.temperatura}} Grados</td>
+        <td>{{ciudad.humedad}}</td>
+        <td>{{ciudad.presion}}</td>
+        <td>{{ciudad.velocidad}} Km/h</td>
+        <td>
+            <button class="btn btn-primary">Editar</button>
+            <button class="btn btn-danger ml-2" (click)="eliminar(ciudad._id)">Eliminar</button>
+
+        </td>
+        <!-- <td>{{ciudad.pais.nombre}}</td> -->
+    </tr>
+</table>

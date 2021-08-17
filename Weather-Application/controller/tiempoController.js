@@ -39,8 +39,16 @@ module.exports = {
             return res.json(result);
         });
 
-        
+    },
 
+    eliminarCiudad: (req, res) => {
+        let id = req.params.id;
+
+        ciudad.findByIdAndDelete(id, (err, result) => {
+
+            if(err) return res.json(err)
+            return res.json('Pais Eliminado'); 
+        });
 
     }
 
